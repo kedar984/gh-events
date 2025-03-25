@@ -3,7 +3,18 @@ on:
   pull_request:
     types:
       - opened
+    branches:
+      - main #main
+      - 'dev-*' #dev-new dev-this-is-new
+      - 'feat/**' #feat/new  freat/new/button
   workflow_dispatch:
+  push:
+    branches:
+      - main #what push event is triggred into main branch
+      - 'dev-*' # when push event triggred to dev-new dev=thi-is-new branch
+      - 'feat/**' # when push event is trigred into branch  #feat/new  freat/new/button
+    paths-ignore:
+       - '.github/workflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
